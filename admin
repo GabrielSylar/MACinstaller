@@ -1,0 +1,38 @@
+#!/bin/bash
+
+echo Install Mac App Store apps first.
+# Check that Homebrew is installed and install if not
+if test ! $(which brew);
+then
+  echo "Installing Homebrew for you."
+  ruby -e  "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+fi
+
+# Update any existing homebrew recipes
+brew update
+
+# Upgrade any already installed formulae
+brew upgrade
+
+# Install my brew packages
+brew install wget
+brew install mpv
+
+# Install cask
+brew tap phinze/homebrew-cask
+
+# Install desired cask packages
+echo "installing begins..."
+
+APPS=(
+google-chrome
+zoom
+vlc
+microsoft-teams
+)
+
+brew install --cask ${APPS[@]}
+
+echo "finished installing"
+# Remove brew cruft
+brew cleanup
