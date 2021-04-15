@@ -4,8 +4,8 @@ echo Install Mac App Store apps first.
 # Check that Homebrew is installed and install if not
 if test ! $(which brew);
 then
-  echo "Installing Homebrew for you."
-  ruby -e  "$(curl -fsSL "https://raw.githubusercontent.com/Homebrew/install/master/install")"
+  echo 'Installing Homebrew for you.'
+  ruby -e  "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
 # Update any existing homebrew recipes
